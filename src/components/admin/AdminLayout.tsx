@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation, Navigate } from 'react-router-dom';
-import { LayoutDashboard, Package, Tag, LogOut, Store } from 'lucide-react';
+import { LayoutDashboard, Package, Tag, LogOut, Store, Settings  } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 
@@ -7,6 +7,7 @@ const navItems = [
   { to: '/admin',            label: 'Dashboard',  icon: LayoutDashboard, exact: true },
   { to: '/admin/products',   label: 'Products',   icon: Package },
   { to: '/admin/categories', label: 'Categories', icon: Tag },
+  { to: '/admin/settings',    label: 'Settings',   icon: Settings },
 ];
 
 export default function AdminLayout() {

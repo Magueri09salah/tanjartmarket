@@ -32,6 +32,14 @@ export const api = {
     check: () => request<{ admin: { id: number; username: string } }>('/auth/check.php'),
   },
 
+  settings: {
+    changePassword: (current_password: string, new_password: string, confirm_password: string) =>
+      request('/auth/change-password.php', {
+        method: 'POST',
+        body: JSON.stringify({ current_password, new_password, confirm_password }),
+      }),
+    },
+
   categories: {
     list: () => request<Category[]>('/categories/index.php'),
     create: (data: CategoryPayload) =>

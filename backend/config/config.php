@@ -36,3 +36,12 @@ function jsonBody(): array {
     $raw = file_get_contents('php://input');
     return json_decode($raw, true) ?? [];
 }
+
+function getBearerToken(): string {
+    $headers = getallheaders();
+    $auth = $headers['Authorization'] ?? $headers['authorization'] ?? '';
+    if (str_starts_with($auth, 'Bearer ')) {
+        return trim(substr($auth, 7));
+    }
+    return '';
+}

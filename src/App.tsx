@@ -21,6 +21,7 @@ import Login from "./pages/admin/Login.tsx";
 import Dashboard from "./pages/admin/Dashboard.tsx";
 import Products from "./pages/admin/Products.tsx";
 import Categories from "./pages/admin/Categories.tsx";
+import Settings from '@/pages/admin/Settings';
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
                 <Route index element={<Dashboard />} />
                 <Route path="products" element={<Products />} />
                 <Route path="categories" element={<Categories />} />
+                <Route path="/admin/settings" element={<Settings />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />

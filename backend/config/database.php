@@ -1,8 +1,8 @@
 <?php
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'tanjartmarket');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_USER', 'tanjartmarket');
+define('DB_PASS', 'w%Ov@UnRCU--');
 
 function getDB(): PDO {
     static $pdo = null;

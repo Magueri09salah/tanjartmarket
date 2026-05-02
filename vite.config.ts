@@ -9,16 +9,16 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     hmr: { overlay: false },
-    proxy: {
-      '/api': {
-        target: 'http://tanjartmarket.test/market/backend',
-        changeOrigin: true,
-      },
-      '/uploads': {
-        target: 'http://tanjartmarket.test/market/backend',
-        changeOrigin: true,
-      },
-    },
+    // proxy: {
+    //   '/api': {
+    //     target: 'https://tanjartmarket.com/backend',
+    //     changeOrigin: true,
+    //   },
+    //   '/uploads': {
+    //     target: 'https://tanjartmarket.com/backend',
+    //     changeOrigin: true,
+    //   },
+    // },
   },
   plugins: [
     react(),

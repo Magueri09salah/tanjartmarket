@@ -15,8 +15,8 @@ const Contact = () => {
   };
 
   const cards = [
-    { icon: Phone, title: t('contact.call'), value: "+212 7 77 58 55 16" },
-    { icon: Mail, title: t('contact.email'), value: "contact@tanjartmarket.store" },
+    { icon: Phone, title: t('contact.call'), value: "+212 6 11 09 98 24" },
+    { icon: Mail, title: t('contact.email'), value: "contact@tanjartmarket.com" },
     { icon: MapPin, title: t('contact.address'), value: t('contact.address_value') },
   ];
 
@@ -30,15 +30,23 @@ const Contact = () => {
       </section>
 
       <section className="container py-14 grid md:grid-cols-3 gap-8">
-        {cards.map((c) => (
-          <div key={c.title} className="bg-card rounded-2xl border shadow-soft p-6 text-center hover:shadow-elegant transition-smooth">
-            <div className="w-14 h-14 rounded-2xl gradient-hero text-primary-foreground grid place-items-center mx-auto mb-4">
-              <c.icon className="w-6 h-6" />
-            </div>
-            <h3 className="font-bold mb-1">{c.title}</h3>
-            <p className="text-muted-foreground">{c.value}</p>
-          </div>
-        ))}
+{cards.map((c, i) => (
+  <div key={c.title} className="bg-card rounded-2xl border shadow-soft p-6 text-center hover:shadow-elegant transition-smooth">
+    <div className="w-14 h-14 rounded-2xl gradient-hero text-primary-foreground grid place-items-center mx-auto mb-4">
+      <c.icon className="w-6 h-6" />
+    </div>
+    <h3 className="font-bold mb-1">{c.title}</h3>
+    <p className="text-muted-foreground">
+      {i === 0 ? (
+        <span dir="ltr" style={{ unicodeBidi: "isolate" }}>
+          {c.value}
+        </span>
+      ) : (
+        c.value
+      )}
+    </p>
+  </div>
+))}
       </section>
 
       <section className="container pb-16">

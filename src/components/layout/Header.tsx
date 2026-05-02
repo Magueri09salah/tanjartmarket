@@ -41,16 +41,16 @@ export const Header = () => {
         <div className="container flex items-center justify-between h-16 md:h-20 gap-4">
           <Link to="/" className="flex items-center gap-2 group">
             {/* <div className="w-10 h-10 rounded-xl gradient-hero grid place-items-center shadow-glow group-hover:scale-105 transition-spring"> */}
-              <img
+              {/* <img
                 src="/tanjarmarket.png"
                 alt="Tanjartmarket logo"
                 className="w-16 h-16 object-contain"
-              />
+              /> */}
+              <ShoppingCart  />
 
             {/* </div> */}
             <div className="leading-tight">
               <div className="font-extrabold text-lg text-primary">Tanjartmarket</div>
-              <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Store 2025</div>
             </div>
           </Link>
 

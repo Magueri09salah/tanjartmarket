@@ -1,12 +1,12 @@
 <?php
 define('UPLOAD_DIR', __DIR__ . '/../uploads/');
 // define('UPLOAD_URL', 'http://localhost/tanjartmarket-backend/uploads/');
-define('UPLOAD_URL', 'http://tanjartmarket.test/market/backend/uploads/');
+define('UPLOAD_URL', 'hhttps://tanjartmarket.com/backend/uploads/');
 define('TOKEN_EXPIRY_SECONDS', 86400 * 7); // 7 days
 
 function setCorsHeaders(): void {
     $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-    $allowed = ['http://localhost:8080', 'http://localhost:5173', 'http://127.0.0.1:8080'];
+    $allowed = ['https://tanjartmarket.com', 'http://localhost:5173', 'http://127.0.0.1:8080'];
 
     if (in_array($origin, $allowed)) {
         header('Access-Control-Allow-Origin: ' . $origin);

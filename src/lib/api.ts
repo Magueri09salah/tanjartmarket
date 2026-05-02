@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = 'https://tanjartmarket.com/backend/api';
 
 function getToken(): string | null {
   return localStorage.getItem('admin_token');

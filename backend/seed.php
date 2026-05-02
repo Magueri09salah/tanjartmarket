@@ -45,7 +45,7 @@ try {
         ['name' => 'فرماج طرونشي 24',            'name_en' => 'Cheese Slices 24',  'price' => 17.0, 'old_price' => 22.0, 'image' => '/images/cat-cheese.jpg',   'cat' => 'cheese', 'badge' => 'sale'],
         ['name' => 'بلوك لفاش كيري',             'name_en' => 'Kiri Block',        'price' => 11.9, 'old_price' => null, 'image' => '/images/cat-cheese.jpg',   'cat' => 'cheese', 'badge' => null],
         ['name' => 'فرماج لديد 96',              'name_en' => 'Ladid Cheese 96',   'price' => 49.0, 'old_price' => 80.0, 'image' => '/images/cat-cheese.jpg',   'cat' => 'cheese', 'badge' => 'sale'],
-        ['name' => 'زبدة كيلو القنيطرة',         'name_en' => 'Butter 1KG',        'price' => 84.9, 'old_price' => null, 'image' => '/images/cat-dairy.jpg',    'cat' => 'dairy',  'badge' => null],
+        ['name' => 'زبدة كيلو مراكش',         'name_en' => 'Butter 1KG',        'price' => 84.9, 'old_price' => null, 'image' => '/images/cat-dairy.jpg',    'cat' => 'dairy',  'badge' => null],
         ['name' => 'فرماج موزريلا 200g',         'name_en' => 'Mozzarella 200g',   'price' => 12.9, 'old_price' => 15.0, 'image' => '/images/cat-cheese.jpg',   'cat' => 'cheese', 'badge' => 'sale'],
         ['name' => 'فرماج طبيعي بتومة 1g',       'name_en' => 'Natural Cheese 1g', 'price' => 49.5, 'old_price' => null, 'image' => '/images/cat-cheese.jpg',   'cat' => 'cheese', 'badge' => null],
         ['name' => 'فرماج طبيعي 900g',           'name_en' => 'Natural Cheese 900g','price'=> 44.9, 'old_price' => null, 'image' => '/images/cat-cheese.jpg',   'cat' => 'cheese', 'badge' => null],

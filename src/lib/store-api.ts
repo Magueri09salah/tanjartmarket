@@ -59,13 +59,13 @@ async function get<T>(url: string): Promise<T> {
 }
 
 export async function getCategories(): Promise<Category[]> {
-  const data = await get<DbCategory[]>('/api/categories/index.php');
+  const data = await get<DbCategory[]>('/backend/api/categories/index.php');
   return data.map(toCategory);
 }
 
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
   try {
-    const data = await get<DbCategory>(`/api/categories/index.php?slug=${encodeURIComponent(slug)}`);
+    const data = await get<DbCategory>(`/backend/api/categories/index.php?slug=${encodeURIComponent(slug)}`);
     return toCategory(data);
   } catch {
     return null;
@@ -73,13 +73,13 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
 }
 
 export async function getProducts(): Promise<Product[]> {
-  const data = await get<DbProduct[]>('/api/products/index.php');
+  const data = await get<DbProduct[]>('/backend/api/products/index.php');
   return data.map(toProduct);
 }
 
 export async function getProductsByCategory(slug: string): Promise<Product[]> {
   const data = await get<DbProduct[]>(
-    `/api/products/index.php?category_slug=${encodeURIComponent(slug)}`
+    `/backend/api/products/index.php?category_slug=${encodeURIComponent(slug)}`
   );
   return data.map(toProduct);
 }
@@ -88,7 +88,7 @@ export async function getProduct(id: string): Promise<Product | null> {
   const numId = parseInt(id);
   if (isNaN(numId)) return null;
   try {
-    const data = await get<DbProduct>(`/api/products/index.php?id=${numId}`);
+    const data = await get<DbProduct>(`/backend/api/products/index.php?id=${numId}`);
     return toProduct(data);
   } catch {
     return null;

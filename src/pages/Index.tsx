@@ -73,10 +73,10 @@ const Index = () => {
               <div className="w-12 h-12 rounded-full gradient-gold grid place-items-center">
                 <Truck className="w-6 h-6 text-accent-foreground" />
               </div>
-              <div>
+              {/* <div>
                 <div className="text-xs text-muted-foreground">{t('home.free_delivery')}</div>
                 <div className="font-bold text-sm">{t('home.free_delivery_min')}</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -145,7 +145,7 @@ const Index = () => {
       </section>
 
       {/* CTA BANNER */}
-      <section className="container pb-16">
+      {/* <section className="container pb-16">
         <div className="relative overflow-hidden rounded-3xl gradient-hero p-8 md:p-12 text-primary-foreground">
           <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-accent/30 blur-3xl" />
           <div className="relative grid md:grid-cols-2 gap-6 items-center">
@@ -162,7 +162,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </Layout>
   );
 };

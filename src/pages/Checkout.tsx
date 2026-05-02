@@ -9,7 +9,7 @@
   import { toast } from "sonner";
   import { useTranslation } from 'react-i18next';
 
-  const WHATSAPP_NUMBER = '212648192642';
+  const WHATSAPP_NUMBER = '212611099824';
 
   const Checkout = () => {
     const { items, subtotal, clear } = useCart();

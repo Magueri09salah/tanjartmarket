@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Truck, ShieldCheck, Clock, Sparkles, ArrowLeft } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { CategoryCard } from "@/components/category/CategoryCard";
@@ -14,6 +14,26 @@ const Index = () => {
   const [offers, setOffers]         = useState<Product[]>([]);
   const [loading, setLoading]       = useState(true);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  // Hidden admin access: 5 clicks within 3 seconds
+  const adminClickCount = useRef(0);
+  const adminClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleAdminAccess = () => {
+    adminClickCount.current += 1;
+
+    if (adminClickTimer.current) clearTimeout(adminClickTimer.current);
+    adminClickTimer.current = setTimeout(() => {
+      adminClickCount.current = 0;
+    }, 3000);
+
+    if (adminClickCount.current >= 5) {
+      adminClickCount.current = 0;
+      if (adminClickTimer.current) clearTimeout(adminClickTimer.current);
+      navigate("/admin");
+    }
+  };
 
   const features = [
     { icon: Truck,       title: t('home.feature_delivery'),  desc: t('home.feature_delivery_desc') },
@@ -58,11 +78,24 @@ const Index = () => {
             </div>
 
             <div className="flex gap-6 pt-4 justify-center md:justify-start">
-              <div><div className="text-2xl font-extrabold text-accent">+1000</div><div className="text-xs text-primary-foreground/70">{t('home.stat_products')}</div></div>
+              <div>
+                <div className="text-2xl font-extrabold text-accent">+1000</div>
+                <div className="text-xs text-primary-foreground/70">{t('home.stat_products')}</div>
+              </div>
               <div className="w-px bg-primary-foreground/20" />
-              <div><div className="text-2xl font-extrabold text-accent">+5000</div><div className="text-xs text-primary-foreground/70">{t('home.stat_customers')}</div></div>
+              <div>
+                <div className="text-2xl font-extrabold text-accent">+5000</div>
+                <div className="text-xs text-primary-foreground/70">{t('home.stat_customers')}</div>
+              </div>
               <div className="w-px bg-primary-foreground/20" />
-              <div><div className="text-2xl font-extrabold text-accent">24h</div><div className="text-xs text-primary-foreground/70">{t('home.stat_delivery')}</div></div>
+              {/* Hidden admin access button — 5 clicks within 3s redirects to /admin */}
+              <div
+                onClick={handleAdminAccess}
+                className="cursor-default select-none"
+              >
+                <div className="text-2xl font-extrabold text-accent">24h</div>
+                <div className="text-xs text-primary-foreground/70">{t('home.stat_delivery')}</div>
+              </div>
             </div>
           </div>
 
@@ -73,10 +106,6 @@ const Index = () => {
               <div className="w-12 h-12 rounded-full gradient-gold grid place-items-center">
                 <Truck className="w-6 h-6 text-accent-foreground" />
               </div>
-              {/* <div>
-                <div className="text-xs text-muted-foreground">{t('home.free_delivery')}</div>
-                <div className="font-bold text-sm">{t('home.free_delivery_min')}</div>
-              </div> */}
             </div>
           </div>
         </div>
@@ -143,26 +172,6 @@ const Index = () => {
           </div>
         )}
       </section>
-
-      {/* CTA BANNER */}
-      {/* <section className="container pb-16">
-        <div className="relative overflow-hidden rounded-3xl gradient-hero p-8 md:p-12 text-primary-foreground">
-          <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-accent/30 blur-3xl" />
-          <div className="relative grid md:grid-cols-2 gap-6 items-center">
-            <div>
-              <h3 className="text-2xl md:text-4xl font-extrabold mb-3">{t('home.cta_title')}</h3>
-              <p className="text-primary-foreground/80 mb-6">{t('home.cta_sub')}</p>
-              <Link to="/collections" className="inline-flex h-12 px-7 rounded-full gradient-gold text-accent-foreground font-bold items-center gap-2 hover:scale-105 transition-spring">
-                {t('home.cta_btn')}
-              </Link>
-            </div>
-            <div className="text-center md:text-left">
-              <div className="text-6xl md:text-8xl font-extrabold text-accent">10%</div>
-              <div className="text-lg font-semibold">{t('home.cta_discount')}</div>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </Layout>
   );
 };

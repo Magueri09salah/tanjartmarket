@@ -10,7 +10,7 @@
   import { useTranslation } from 'react-i18next';
 
   const WHATSAPP_NUMBER = '212611099824';
-
+// 🚚 *${t('checkout.shipping')}* ${shipping === 0 ? t('checkout.free') : formatPrice(shipping)}
   const Checkout = () => {
     const { items, subtotal, clear } = useCart();
     const navigate = useNavigate();
@@ -59,7 +59,7 @@
   ${orderLines}
 
   💰 *${t('checkout.subtotal')}* ${formatPrice(subtotal)}
-  🚚 *${t('checkout.shipping')}* ${shipping === 0 ? t('checkout.free') : formatPrice(shipping)}
+  
   ✅ *${t('checkout.total')}* ${formatPrice(total)}
 
   💳 *${t('checkout.payment')}* ${t('checkout.cod')}
